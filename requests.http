@@ -1,0 +1,83 @@
+### A) (Create room) — run only if you haven't created one
+POST http://127.0.0.1:3000/room/create
+Content-Type: application/json
+
+{
+  "name": "Alice"
+}
+
+###
+
+### B) Join Bob
+POST http://127.0.0.1:3000/room/join
+Content-Type: application/json
+
+{
+  "roomId": "c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4",
+  "name": "Bob"
+}
+
+###
+
+### C) Join Charlie
+POST http://127.0.0.1:3000/room/join
+Content-Type: application/json
+
+{
+  "roomId": "c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4",
+  "name": "Charlie"
+}
+
+###
+
+### D) Join Diana
+POST http://127.0.0.1:3000/room/join
+Content-Type: application/json
+
+{
+  "roomId": "c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4",
+  "name": "Diana"
+}
+
+###
+
+### E) Show players (get their playerIds)
+GET http://127.0.0.1:3000/room/players/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+
+###
+
+### F) Assign roles (call only after there are 4 players)
+POST http://127.0.0.1:3000/room/assign/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+Content-Type: application/json
+
+###
+
+### G) Get one player's role (replace <playerId>)
+GET http://127.0.0.1:3000/role/me/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4/e22277a6-ac8f-4ab7-bce0-2823beb22e00
+
+###
+
+### H) Mantri submits guess (replace both ids)
+POST http://127.0.0.1:3000/guess/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+Content-Type: application/json
+
+{
+  "mantriId": "e22277a6-ac8f-4ab7-bce0-2823beb22e00",
+  "guessedPlayerId": "c1ae1167-91dd-4f23-92c4-47ce78964eb7"
+}
+
+###
+
+### I) Get result
+GET http://127.0.0.1:3000/result/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+
+###
+
+### J) Leaderboard
+GET http://127.0.0.1:3000/leaderboard/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+
+###
+
+### K) Reset for next round
+POST http://127.0.0.1:3000/room/reset/c8f41b53-7d21-45ee-9ad5-0a9d7f50c4a4
+Content-Type: application/json
