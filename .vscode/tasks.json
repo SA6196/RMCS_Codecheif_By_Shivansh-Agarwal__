@@ -2,14 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run Flask Server",
+      "label": "Run app",
       "type": "shell",
-      "command": "python app.py",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "command": "${command:python.interpreterPath}",
+      "args": ["${workspaceFolder}/app.py"],
       "problemMatcher": []
+    },
+    {
+      "label": "Install requirements",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m","pip","install","-r","requirements.txt"]
     }
   ]
 }
